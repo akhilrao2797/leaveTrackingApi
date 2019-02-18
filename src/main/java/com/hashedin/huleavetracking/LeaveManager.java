@@ -46,12 +46,7 @@ public class LeaveManager {
         return daysWithoutWeekends + (startW == DayOfWeek.SUNDAY ? 1 : 0) + (endW == DayOfWeek.SUNDAY ? 1 : 0);
     }
 
-    public int balanceHolidaysLeft(Employee employee, LocalDate date){
-        int balance;
-        for(int i=0;i<12;i++){
-            if(date.get)
-        }
-    }
+   
     public int compOff(Employee employee, LocalDate date){
         int compOffBalance = employee.getCompOffBalance();
         return 0;
