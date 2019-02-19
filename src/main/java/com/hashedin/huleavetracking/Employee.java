@@ -1,17 +1,27 @@
 package com.hashedin.huleavetracking;
 
 import java.time.LocalDate;
-import java.util.HashMap;
+import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Employee {
     private int employeeId;
     private Gender gender;
-    private int holidaysLeft;
     private int maternityLeave=0;
     private int paternityLeave=0;
+    CompOff compOff = new CompOff();
     public Map<String,Integer> month= new LinkedHashMap<String,Integer>();
+
+    public Map<LocalDate, LocalDate> getLeavesAtPresent() {
+        return leavesAtPresent;
+    }
+
+    public void setLeavesAtPresent(LocalDate startDate, LocalDate endDate) {
+        leavesAtPresent.put(startDate,endDate);
+    }
+
+    public Map<LocalDate,LocalDate> leavesAtPresent = new LinkedHashMap<LocalDate, LocalDate>();
 
     public int getMaternityLeave() {
         return maternityLeave;
@@ -45,32 +55,10 @@ public class Employee {
         month.put("DECEMBER",2);
     }
 
-    public Employee(int employeeId, Gender gender, int holidaysLeft, int extraWorkHours, int compOffBalance) {
+    public Employee(int employeeId, Gender gender) {
         this.employeeId = employeeId;
         this.gender = gender;
-        this.holidaysLeft = holidaysLeft;
-        this.extraWorkHours = extraWorkHours;
-        this.compOffBalance = compOffBalance;
     }
-
-    public int getExtraWorkHours() {
-        return extraWorkHours;
-    }
-
-    public void setExtraWorkHours(int extraWorkHours) {
-        this.extraWorkHours = extraWorkHours;
-    }
-
-    public int getCompOffBalance() {
-        return compOffBalance;
-    }
-
-    public void setCompOffBalance(int compOffBalance) {
-        this.compOffBalance = compOffBalance;
-    }
-
-    private int extraWorkHours;
-    private int compOffBalance;
 
     public Gender getGender() {
         return gender;
@@ -78,14 +66,6 @@ public class Employee {
 
     public void setGender(Gender gender) {
         this.gender = gender;
-    }
-
-    public int getHolidaysLeft() {
-        return holidaysLeft;
-    }
-
-    public void setHolidaysLeft(int holidaysLeft) {
-        this.holidaysLeft = holidaysLeft;
     }
 
 
@@ -99,11 +79,11 @@ public class Employee {
 
 
     public static void main(String args[]){
-        Employee employee = new Employee(10,Gender.MALE, 20,20,0);
-        LeaveRequest request = new LeaveRequest(employee , LocalDate.now(),LocalDate.now().plusDays(2),LeaveType.OutOfOffice);
+        Employee employee = new Employee(10,Gender.MALE);
+        LeaveRequest request = new LeaveRequest(employee , LocalDate.now(),LocalDate.now().plusDays(10),LeaveType.OutOfOffice);
         LeaveManager manager = new LeaveManager();
         employee.setMonth();
-        LeaveResponse apply = manager.apply(employee, request);
+        LeaveResponse apply = manager.apply(employee, request,employee.compOff);
         System.out.println(apply.getResponse());
     }
 
