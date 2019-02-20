@@ -5,14 +5,41 @@ import java.time.temporal.ChronoUnit;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
 public class Employee {
+
+    @Id
     private int employeeId;
     private Gender gender;
     private int maternityLeave=0;
     private int paternityLeave=0;
-    private CompOff compOff = new CompOff();
+    private CompOff compOff;
+  //  public Map<String,Integer> month= new LinkedHashMap<String,Integer>();
     private LocalDate joiningDate;
     private int balanceLeaves;
+    private boolean takenOptionalLeave;
+    private boolean isOnMaternityOrPaternityLeave;
+
+    public boolean isTakenOptionalLeave() {
+        return takenOptionalLeave;
+    }
+
+    public void setTakenOptionalLeave(boolean takenOptionalLeave) {
+        this.takenOptionalLeave = takenOptionalLeave;
+    }
+
+    public boolean isOnMaternityOrPaternityLeave() {
+        return isOnMaternityOrPaternityLeave;
+    }
+
+    public void setOnMaternityOrPaternityLeave(boolean onMaternityOrPaternityLeave) {
+        isOnMaternityOrPaternityLeave = onMaternityOrPaternityLeave;
+    }
 
     public LocalDate getJoiningDate() { return joiningDate; }
 
@@ -51,7 +78,7 @@ public class Employee {
     }
 
 
-    public Map<String,Integer> month= new LinkedHashMap<String,Integer>();
+
 
     public Map<LocalDate, LocalDate> getLeavesAtPresent() {
         return leavesAtPresent;
@@ -79,7 +106,7 @@ public class Employee {
         this.paternityLeave = paternityLeave;
     }
 
-
+/*
     public void setMonth() {
         month.put("JANUARY", 2);
         month.put("FEBRUARY", 2);
@@ -109,24 +136,27 @@ public class Employee {
                 month.put(entry.getKey(),0);
             }
         }
-    }
+    }*/
 
     public Employee(int employeeId, Gender gender, LocalDate joiningDate) {
         this.employeeId = employeeId;
         this.gender = gender;
         this.joiningDate = joiningDate;
-        this.setMonth();
+        //this.setMonth();
         this.setBalanceLeaves(this.getBalanceLeaves());
+        this.takenOptionalLeave =false;
+        this.isOnMaternityOrPaternityLeave = false;
+        this.compOff =new CompOff(this);
     }
 
     public Gender getGender() {
         return gender;
     }
-
+/*
     public static void main(String args[]){
         EmployeeStore empStore = new EmployeeStore();
-        Employee employee1 = new Employee(10,Gender.MALE, LocalDate.now().minusYears(2));
-        empStore.addEmployee(employee1);
+        Employee employee = new Employee(10,Gender.MALE, LocalDate.now().minusYears(2));
+        empStore.addEmployee(employee);
         Employee employee2 = new Employee(11,Gender.MALE, LocalDate.now().minusYears(2));
         empStore.addEmployee(employee2);
         Employee employee3 = new Employee(12,Gender.FEMALE, LocalDate.now().minusYears(2));
@@ -135,11 +165,12 @@ public class Employee {
         empStore.addEmployee(employee4);
         Employee employee5 = new Employee(15,Gender.MALE, LocalDate.now().minusYears(2));
         empStore.addEmployee(employee5);
-        LeaveRequest request = new LeaveRequest(employee1 , LocalDate.now(),LocalDate.now().plusDays(1),LeaveType.OutOfOffice,LeaveOptions.blanketCoverage);
         LeaveManager manager = new LeaveManager();
-        System.out.println(employee1.getBalanceLeaves());
-        LeaveResponse apply = manager.apply(employee1, request,employee1.compOff);
+        LeaveRequest request = new LeaveRequest(employee, LocalDate.now().plusMonths(1).plusDays(10),LocalDate.now().plusMonths(1).plusDays(12),LeaveType.OutOfOffice,LeaveOptions.nonBlanketCoverage);
+        LeaveResponse response = manager.apply(employee, request ,employee.getCompOff());
+        LeaveResponse apply = manager.apply(employee, request,employee.compOff);
         System.out.println(apply.getResponse());
     }
+    */
 
 }

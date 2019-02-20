@@ -1,37 +1,56 @@
 package com.hashedin.huleavetracking;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+@Service
 public class EmployeeStore {
-    private int totalNoOfEmployees;
-     Map<Integer, Employee> employees = new HashMap<Integer, Employee>();
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    private List< Employee> employees;
+     public EmployeeStore(){
+         this.employees= new ArrayList<>();
+         /*
+         Employee employee = new Employee(10,Gender.MALE, LocalDate.now().minusYears(2));
+         this.employees.add(employee);
+         Employee employee2 = new Employee(11,Gender.MALE, LocalDate.now().minusYears(2));
+         this.employees.add(employee2);
+         Employee employee3 = new Employee(12,Gender.FEMALE, LocalDate.now().minusYears(2));
+         this.employees.add(employee3);
+         Employee employee4 = new Employee(14,Gender.MALE, LocalDate.now().minusYears(2));
+         this.employees.add(employee4);
+         Employee employee5 = new Employee(15,Gender.MALE, LocalDate.now().minusYears(2));
+         this.employees.add(employee5);*/
+     }
+
     public void addEmployee(Employee employee){
-        employees.put(totalNoOfEmployees,employee);
-        totalNoOfEmployees+=1;
+        employees.add(employee);
     }
     public void removeEmployee(int id){
         employees.remove(id);
     }
-    public int getTotalNoOfEmployees() {
-        return totalNoOfEmployees;
-    }
-    public void displayEmployee()
-    {
-        for (Map.Entry<Integer,Employee> entry : employees.entrySet()) {
-            System.out.println(entry.getValue());
-        }
-    }
 
-    public void setTotalNoOfEmployees(int totalNoOfEmployees) {
-        this.totalNoOfEmployees = totalNoOfEmployees;
+    public List<Employee> displayEmployee()
+    {
+        return employees;
     }
 
     public Employee getEmployeeOnBasisOfId(int id){
-        for ( Map.Entry<Integer, Employee> entry : employees.entrySet()) {
-            int key = entry.getKey();
-            if(key==id)
-                return entry.getValue();
+        for ( Employee employee: employees) {
+            if(employee.getEmployeeId()==id)
+                return employee;
         }
         return null;
     }
