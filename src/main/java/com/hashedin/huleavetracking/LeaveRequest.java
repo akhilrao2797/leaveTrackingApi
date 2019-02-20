@@ -4,18 +4,19 @@ import java.time.LocalDate;
 
 public class LeaveRequest {
     private long employeeId;
-    private LocalDate startdate;
+    private LocalDate startDate;
     private LocalDate endDate;
-
-    public LeaveType getType() {
-        return type;
-    }
-
-    public void setType(LeaveType type) {
-        this.type = type;
-    }
-
     private LeaveType type;
+
+    public LeaveOptions getOption() {return option;}
+
+    public void setOption(LeaveOptions option) {this.option = option; }
+
+    private LeaveOptions option;
+
+    public LeaveType getType() { return type;}
+
+    public void setType(LeaveType type) {this.type = type;}
 
     public long getEmployeeId() {
         return employeeId;
@@ -26,11 +27,11 @@ public class LeaveRequest {
     }
 
     public LocalDate getStartdate() {
-        return startdate;
+        return startDate;
     }
 
     public void setStartdate(LocalDate startdate) {
-        this.startdate = startdate;
+        this.startDate = startdate;
     }
 
     public LocalDate getEndDate() {
@@ -41,12 +42,11 @@ public class LeaveRequest {
         this.endDate = endDate;
     }
 
-
-
-    public LeaveRequest(Employee employee, LocalDate startdate, LocalDate endDate,LeaveType type) {
-        //this.employeeId = employeeId;
-        this.startdate = startdate;
+    public LeaveRequest(Employee employee, LocalDate startdate, LocalDate endDate,LeaveType type, LeaveOptions option) {
+        this.employeeId = employee.getEmployeeId();
+        this.startDate = startdate;
         this.endDate = endDate;
         this.type = type;
+        this.option = option;
     }
 }
