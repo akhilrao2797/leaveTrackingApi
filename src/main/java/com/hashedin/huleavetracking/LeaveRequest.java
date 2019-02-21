@@ -2,7 +2,9 @@ package com.hashedin.huleavetracking;
 
 import java.time.LocalDate;
 
+//@Entity
 public class LeaveRequest {
+    //@Id
     private long employeeId;
     private LocalDate startDate;
     private LocalDate endDate;
