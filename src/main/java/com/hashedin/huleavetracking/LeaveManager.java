@@ -1,9 +1,12 @@
 package com.hashedin.huleavetracking;
 
+import org.springframework.stereotype.Service;
+
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
 
+@Service
 public class LeaveManager {
 
     // counts the actual no of holidays excluding the weekends
@@ -22,24 +25,23 @@ public class LeaveManager {
     }
 
    private boolean overlappingDates(Employee employee, LeaveRequest request){
-        for(Map.Entry<LocalDate,LocalDate> entry : employee.getLeavesAtPresent().entrySet()){
-            if(request.getStartdate().isAfter(entry.getKey()) && request.getEndDate().isBefore(entry.getValue())) {
+
+            if(request.getStartdate().isAfter(employee.getStartLeaveDate()) && request.getEndDate().isBefore(employee.getEndDate())) {
                 return false;
             }
-            if(request.getStartdate().isBefore(entry.getKey()) && request.getEndDate().isBefore(entry.getValue()) && request.getStartdate().isBefore(entry.getValue())){
+            if(request.getStartdate().isBefore(employee.getStartLeaveDate()) && request.getEndDate().isBefore(employee.getEndDate()) && request.getStartdate().isBefore(employee.getEndDate())){
                 return false;
             }
-            if(request.getStartdate().isBefore(entry.getKey()) && request.getEndDate().isAfter(entry.getValue())){
+            if(request.getStartdate().isBefore(employee.getStartLeaveDate()) && request.getEndDate().isAfter(employee.getEndDate())){
                 return false;
             }
-            if(request.getStartdate().isAfter(entry.getKey()) && request.getEndDate().isAfter(entry.getValue()) && request.getEndDate().isBefore(entry.getValue())){
+            if(request.getStartdate().isAfter(employee.getStartLeaveDate()) && request.getEndDate().isAfter(employee.getEndDate()) && request.getEndDate().isBefore(employee.getEndDate())){
                 return false;
             }
-        }
         return true;
     }
 
-    public LeaveResponse apply(Employee employee, LeaveRequest request, CompOff compOff) {
+    public LeaveResponse apply(Employee employee, LeaveRequest request) {
         PublicHolidays holidaymanager =new PublicHolidays(employee,request);
         if (request.getStartdate().isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("Date is not properly mentioned");
@@ -64,14 +66,16 @@ public class LeaveManager {
         int noOfDays = noOfActualHolidays(request,holidaymanager);
 
         if(request.getType() == LeaveType.CompOff){
-            employee.getCompOff().compOffLeaveGrant(employee, noOfDays);
+            CompOff compOff = new CompOff(employee);
+            compOff.compOffLeaveGrant(employee, noOfDays);
         }
 
         if(!overlappingDates(employee,request))
             throw new IllegalArgumentException("Already holiday has been taken for that time period mentioned");
         if (employee.getBalanceLeaves() >= noOfDays) {
             if (noOfDays <= 2) {
-                employee.setLeavesAtPresent(request.getStartdate(),request.getEndDate());
+                employee.setStartLeaveDate(request.getStartdate());
+                employee.setEndDate(request.getEndDate());
                 employee.setBalanceLeaves(employee.getBalanceLeaves()- noOfDays);
                 LeaveResponse leaveResponse = new LeaveResponse(LeaveStatus.ACCEPTED, "Accepted due to a valid reason");
                 return leaveResponse;

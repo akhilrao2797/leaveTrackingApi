@@ -27,10 +27,10 @@ public class LeaveAcuralManager {
                 leaveBalance = 10;
             }
             if (employee.isOnMaternityOrPaternityLeave()) {
-                for(Map.Entry<LocalDate,LocalDate> entryLeave : employee.getLeavesAtPresent().entrySet())
-                    if(entryLeave.getValue() == LocalDate.now() && LocalDate.now().getDayOfMonth() >15)
+              //  for(Map.Entry<LocalDate,LocalDate> entryLeave : employee.getLeavesAtPresent().entrySet())
+                    if(employee.getEndDate() == LocalDate.now() && LocalDate.now().getDayOfMonth() >15)
                         leaveBalance-=1;
-                    else if(entryLeave.getValue() == LocalDate.now() && LocalDate.now().getDayOfMonth() <15)
+                    else if(employee.getEndDate() == LocalDate.now() && LocalDate.now().getDayOfMonth() <15)
                         leaveBalance-=0;
                     else
                         continue;

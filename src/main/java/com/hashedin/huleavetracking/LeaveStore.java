@@ -1,6 +1,7 @@
 
 package com.hashedin.huleavetracking;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -10,10 +11,11 @@ import java.util.Map;
 @Service
 public class LeaveStore {
     private EmployeeStore employeeStore;
-    public LeaveStore(){
-        this.employeeStore=new EmployeeStore();
+    @Autowired
+    public LeaveStore(EmployeeStore employeeStore){
+        this.employeeStore=employeeStore;
     }
-    public Map<LocalDate,LocalDate> leavesOfAnEmployee(int id){
+    public String leavesOfAnEmployee(int id){
         int employeeId;
         Employee emp = null;
         for (Employee employee: employeeStore.getEmployees())
@@ -24,13 +26,13 @@ public class LeaveStore {
         }
         if( emp == null)
             return null;
-        return emp.getLeavesAtPresent();
+        return emp.getStartLeaveDate() + " " +emp.getEndDate();
     }
     public LeaveResponse applyLeave(int id, LocalDate startDate, LocalDate endDate,LeaveType type,LeaveOptions option){
         LeaveManager manager= new LeaveManager();
         Employee employee = employeeStore.getEmployeeOnBasisOfId(id);
         LeaveRequest request = new LeaveRequest(employee,startDate,endDate,type,option);
-        LeaveResponse response = manager.apply(employee,request,employee.getCompOff());
+        LeaveResponse response = manager.apply(employee,request);
         return response;
     }
 }

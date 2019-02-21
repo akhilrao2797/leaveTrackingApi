@@ -21,7 +21,7 @@ public class LeaveController {
     }
 
     @RequestMapping("/leaves/{id}")
-    public Map<LocalDate, LocalDate> getLeaveOfEmployee(@PathVariable(value="id") int id){
+    public String getLeaveOfEmployee(@PathVariable(value="id") int id){
         return leaveStore.leavesOfAnEmployee(id);
     }
 

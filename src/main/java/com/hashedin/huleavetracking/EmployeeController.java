@@ -25,7 +25,7 @@ public class EmployeeController {
     }
     @RequestMapping("/")
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "Leave Manager";
     }
 
     @RequestMapping("/employees/{id}")

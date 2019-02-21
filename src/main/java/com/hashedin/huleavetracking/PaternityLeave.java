@@ -9,7 +9,7 @@ public class PaternityLeave {
             throw new IllegalArgumentException("Exceeded max. paternity leaves");
         if (employee.getPaternityLeave() < 2) {
             employee.setPaternityLeave(employee.getPaternityLeave() + 1);
-            employee.setLeavesAtPresent(request.getStartdate(), request.getStartdate().plusMonths(1));
+           // employee.setLeavesAtPresent(request.getStartdate(), request.getStartdate().plusMonths(1));
             return new LeaveResponse(LeaveStatus.ACCEPTED, "Leave granted as no. of children less than 2");
         }
 

@@ -1,11 +1,14 @@
 package com.hashedin.huleavetracking;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
+
 public class CompOff {
+
     private Employee employee;
     int logWorkDays;
     boolean used;
