@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeStore {
@@ -47,7 +48,11 @@ public class EmployeeStore {
         employeeRepository.save(employee);
     }
 
-    public Employee getEmployeeOnBasisOfId(int id){
+    public Optional<Employee> getEmployeeOnBasisOfId(int id){
+        return employeeRepository.findById(id);
+    }
+
+    public Employee getEmployeeOnId(int id){
         Employee employee = null;
         for(Employee emp:employees){
             if(emp.getEmployeeId()==id) {
@@ -56,6 +61,5 @@ public class EmployeeStore {
             }
         }
         return employee;
-       // return employeeRepository.findById(id).toString();
     }
 }

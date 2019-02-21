@@ -1,22 +1,43 @@
 //package com.hashedin.huleavetracking;
 //
+//import org.junit.Before;
 //import org.junit.Test;
+//import org.junit.runner.RunWith;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+//import org.springframework.test.context.junit4.SpringRunner;
 //
-//import java.sql.SQLOutput;
 //import java.time.LocalDate;
 //import java.time.LocalDateTime;
 //
 //import static org.junit.Assert.*;
 //
+//@RunWith(SpringRunner.class)
+//@DataJpaTest
 //public class LeaveManagerTest {
 //
+//    @Autowired
+//    private EmployeeRepository employeeRepository;
+//    @Autowired
+//    private LeaveRepository leaveRepository;
+//    private EmployeeStore employeeStore;
+//    private LeaveManager leaveManager;
 //    // Start Date less than end date
+//
+//    @Before
+//    public void startBeforeTesting(EmployeeRepository employeeRepository,LeaveRepository leaveRepository){
+//        this.employeeRepository=employeeRepository;
+//        this.employeeStore= new EmployeeStore(employeeRepository);
+//        this.leaveManager= new LeaveManager();
+//        this.leaveRepository=leaveRepository;
+//    }
+//
 //    @Test(expected = IllegalArgumentException.class)
 //    public void TestStartDateLessThanEndDate(){
+//        employeeStore = new EmployeeStore(employeeRepository);
 //        Employee employee = new Employee(10,Gender.MALE , LocalDate.now().minusYears(2));
-//        LeaveManager manager = new LeaveManager();
 //        LeaveRequest request = new LeaveRequest(employee, LocalDate.now().plusDays(12),LocalDate.now().minusDays(13),LeaveType.OutOfOffice,LeaveOptions.nonBlanketCoverage);
-//        LeaveResponse response = manager.apply(employee, request );
+//        LeaveResponse response = leaveManager.apply(employee, request );
 //        assertEquals("start date and end date not perfect",LeaveStatus.REJECTED,response.getStatus());
 //    }
 //
@@ -136,7 +157,6 @@
 //    @Test(expected = IllegalArgumentException.class)
 //    public void leaveAlreadyExistingOnThatDate(){
 //        Employee employee = new Employee(10,Gender.FEMALE , LocalDate.now().minusDays(2));
-//        employee.setLeavesAtPresent(LocalDate.now(),LocalDate.now().plusDays(4));
 //        LeaveManager manager = new LeaveManager();
 //        LeaveRequest request = new LeaveRequest(employee, LocalDate.now(),LocalDate.now().plusDays(1),LeaveType.OutOfOffice,LeaveOptions.nonBlanketCoverage);
 //        LeaveResponse response = manager.apply(employee, request);
@@ -148,7 +168,6 @@
 //        Employee employee = new Employee(10,Gender.FEMALE , LocalDate.now().minusYears(2));
 //        LeaveManager manager = new LeaveManager();
 //        LeaveRequest request = new LeaveRequest(employee, LocalDate.now(),LocalDate.now().plusDays(1),LeaveType.CompOff,LeaveOptions.nonBlanketCoverage);
-//        employee.getCompOff().setLogWorkDays(0);
 //        LeaveResponse response = manager.apply(employee, request);
 //        assertEquals("Compoff leave for no logged worked",LeaveStatus.REJECTED,response.getStatus());
 //    }
@@ -158,8 +177,6 @@
 //        Employee employee = new Employee(10,Gender.FEMALE , LocalDate.now().minusYears(2));
 //        LeaveManager manager = new LeaveManager();
 //        LeaveRequest request = new LeaveRequest(employee, LocalDate.now(),LocalDate.now().plusDays(1),LeaveType.CompOff,LeaveOptions.nonBlanketCoverage);
-//        employee.getCompOff().setLogWorkDays(1);
-//        employee.getCompOff().month = 5;
 //        LeaveResponse response = manager.apply(employee, request);
 //        assertEquals("Asking for a compOff leave on a different month",LeaveStatus.REJECTED,response.getStatus());
 //    }
@@ -169,7 +186,7 @@
 //        Employee employee = new Employee(10,Gender.FEMALE , LocalDate.now().minusYears(2));
 //        LeaveManager manager = new LeaveManager();
 //        LeaveRequest request = new LeaveRequest(employee, LocalDate.now(),LocalDate.now().plusDays(1),LeaveType.CompOff,LeaveOptions.nonBlanketCoverage);
-//        employee.getCompOff().logExtraWorkHours(LocalDateTime.of(2019,2,16,8,0),LocalDateTime.of(2019,2,16,18,0));
+//        //employee.getCompOff().logExtraWorkHours(LocalDateTime.of(2019,2,16,8,0),LocalDateTime.of(2019,2,16,18,0));
 //        LeaveResponse response = manager.apply(employee, request);
 //        assertEquals("Asking for a compOff leave on a different month",LeaveStatus.ACCEPTED,response.getStatus());
 //    }
@@ -179,7 +196,7 @@
 //        Employee employee = new Employee(10,Gender.FEMALE , LocalDate.now().minusYears(2));
 //        LeaveManager manager = new LeaveManager();
 //        LeaveRequest request = new LeaveRequest(employee, LocalDate.now(),LocalDate.now().plusDays(4),LeaveType.CompOff,LeaveOptions.blanketCoverage);
-//        employee.getCompOff().logExtraWorkHours(LocalDateTime.now(), LocalDateTime.now().plusHours(10));
+//        //employee.getCompOff().logExtraWorkHours(LocalDateTime.now(), LocalDateTime.now().plusHours(10));
 //        LeaveResponse response = manager.apply(employee, request);
 //        assertEquals("leaves are more than ",LeaveStatus.REJECTED,response.getStatus());
 //    }

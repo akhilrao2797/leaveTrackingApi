@@ -1,7 +1,6 @@
 package com.hashedin.huleavetracking;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 import static java.time.temporal.ChronoUnit.MONTHS;
 
@@ -20,20 +19,25 @@ public class LeaveAcuralManager {
             int dayOfJoining = employee.getJoiningDate().getDayOfMonth();
             int noOfMonths = (int) MONTHS.between(employee.getJoiningDate(), LocalDate.now());
             int leaveBalance = 2 * (noOfMonths);
-            if (dayOfJoining > 15 && employee.getJoiningDate().getMonth() == LocalDate.now().getMonth() && employee.getJoiningDate().getYear() == LocalDate.now().getYear())
+            if (dayOfJoining > 15 && employee.getJoiningDate().getMonth() == LocalDate.now().getMonth()
+                    && employee.getJoiningDate().getYear() == LocalDate.now().getYear()) {
                 leaveBalance -= 1;
+            }
             if(LocalDate.now() == LocalDate.of(LocalDate.now().getYear(),1,1)) {
                 remainingLeaves=leaveBalance-12;
                 leaveBalance = 10;
             }
             if (employee.isOnMaternityOrPaternityLeave()) {
               //  for(Map.Entry<LocalDate,LocalDate> entryLeave : employee.getLeavesAtPresent().entrySet())
-                    if(employee.getEndDate() == LocalDate.now() && LocalDate.now().getDayOfMonth() >15)
+                    if(employee.getEndDate() == LocalDate.now() && LocalDate.now().getDayOfMonth() >15){
                         leaveBalance-=1;
-                    else if(employee.getEndDate() == LocalDate.now() && LocalDate.now().getDayOfMonth() <15)
+                    }
+                    else if(employee.getEndDate() == LocalDate.now() && LocalDate.now().getDayOfMonth() <15){
                         leaveBalance-=0;
-                    else
+                    }
+                    else {
                         continue;
+                    }
             }
             employee.setBalanceLeaves(employee.getBalanceLeaves() + 2);
         }
