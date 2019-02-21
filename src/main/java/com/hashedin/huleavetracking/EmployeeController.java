@@ -18,33 +18,35 @@ public class EmployeeController {
         this.employeeStore = employeeStore;
     }
 
-    @RequestMapping("/employees")
+    @RequestMapping(value = "/employee/", method = RequestMethod.GET)
     public List<Employee> getAllEmployees(){
         return employeeStore.getEmployees();
 
     }
-    @RequestMapping("/")
-    public String index() {
-        return "Leave Manager";
-    }
 
-    @RequestMapping("/employees/{id}")
+    @RequestMapping("/employee/{id}")
     public @ResponseBody Employee getEmployee(@PathVariable(value="id") int id){
         return  employeeStore.getEmployeeOnBasisOfId(id);
     }
 
-    @RequestMapping(value = "/employee", method = RequestMethod.POST)
+    @RequestMapping(value = "/employee/", method = RequestMethod.POST)
     public String addEmployee(@RequestBody Employee employee)
     {
         employeeStore.addEmployee(employee);
         return "Sucessfully added";
     }
-//    public String addEmployee(@RequestParam("id") int id,@RequestParam("gender") Gender gender, @RequestParam("date") String date) {
-//        LocalDate dateInLocalDateFormat = LocalDate.parse(date);
-//        Employee emp =new Employee(id,gender,dateInLocalDateFormat);
-//        employeeStore.addEmployee(emp);
-//        return "Successfully added";
-//    }
 
+    @RequestMapping(value = "/employee/", method = RequestMethod.PUT)
+    public String updateEmployee(@RequestBody Employee employee)
+    {
+        employeeStore.updateEmployee(employee);
+        return "Sucessfully added";
+    }
 
+    @RequestMapping(value = "/employee/", method = RequestMethod.DELETE)
+    public String deleteEmployee(@RequestBody Employee employee)
+    {
+        employeeStore.deleteEmployee(employee);
+        return "Sucessfully added";
+    }
 }

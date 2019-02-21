@@ -1,12 +1,17 @@
 package com.hashedin.huleavetracking;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.Entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class PublicHolidays {
+
     private ArrayList<LocalDate> publicHolidayList = new ArrayList<>();
     //private ArrayList<LocalDate> optionalLeaves = new ArrayList<>();
     private Map<Integer, OptionalLeaves> optionalLeaves = new HashMap<>();

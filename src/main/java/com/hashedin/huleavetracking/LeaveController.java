@@ -20,12 +20,7 @@ public class LeaveController {
         this.manager =manager;
     }
 
-    @RequestMapping("/leaves/{id}")
-    public String getLeaveOfEmployee(@PathVariable(value="id") int id){
-        return leaveStore.leavesOfAnEmployee(id);
-    }
-
-    @RequestMapping("/apply")
+    @RequestMapping("/leave/apply/")
     public LeaveResponse applyLeave(@RequestBody LeaveRequest request)
     {
         Employee employee=employeeStore.getEmployeeOnBasisOfId(request.getEmployeeId());
@@ -33,12 +28,4 @@ public class LeaveController {
         return response;
 
     }
-//    public LeaveResponse applyLeave(@RequestParam("id") int id, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate,@RequestParam("type") String type,@RequestParam("option") String option){
-//        LocalDate startdate = LocalDate.parse(startDate);
-//        LocalDate enddate = LocalDate.parse(endDate);
-//        LeaveType types= LeaveType.valueOf(type);
-//        LeaveOptions options = LeaveOptions.valueOf(option);
-//        return leaveStore.applyLeave(id,startdate,enddate,types,options);
-//
-//    }
 }
