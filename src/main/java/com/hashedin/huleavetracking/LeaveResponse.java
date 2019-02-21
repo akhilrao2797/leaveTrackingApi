@@ -24,4 +24,10 @@ public class LeaveResponse {
         this.status = status;
         this.response = response;
     }
+
+    @Override
+    public String toString(){
+        return "Leave status :"+status+"Leave Response :"+response;
+
+    }
 }

@@ -1,9 +1,14 @@
 package com.hashedin.huleavetracking;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
+@Entity
 public class LeaveRequest {
-    private long employeeId;
+    
+    @Id
+    private int employeeId;
     private LocalDate startDate;
     private LocalDate endDate;
     private LeaveType type;
@@ -18,11 +23,11 @@ public class LeaveRequest {
 
     public void setType(LeaveType type) {this.type = type;}
 
-    public long getEmployeeId() {
+    public int getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(long employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
 

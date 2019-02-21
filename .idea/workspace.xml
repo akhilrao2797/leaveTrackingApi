@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+=======
+  <component name="ChangeListManager">
+    <list default="true" id="b4089b44-0587-45cc-a56c-2540af90b814" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Leaves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/CompOff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/CompOff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveAcuralManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveAcuralManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/MaternityLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/MaternityLeave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/PaternityLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/PaternityLeave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hashedin/huleavetracking/LeaveManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hashedin/huleavetracking/LeaveManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/CompOff.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/CompOff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/EmployeeStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/EmployeeStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/LeaveAcuralManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/LeaveAcuralManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/LeaveManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/LeaveManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/MaternityLeave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/MaternityLeave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/PaternityLeave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hashedin/huleavetracking/PaternityLeave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/hashedin/huleavetracking/LeaveManagerTest.class" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+>>>>>>> DatabaseCreation
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/huleavetracking$Employee.ic" NAME="Employee Coverage Results" MODIFIED="1550575536081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.hashedin.huleavetracking.*</FILTER>
@@ -8,6 +46,245 @@
       <FILTER>com.hashedin.huleavetracking.*</FILTER>
     </SUITE>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="158" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#261#262#0" expanded="true" />
+                <element signature="e#315#316#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180">
+              <caret line="27" column="86" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="86" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1661#1662#0" expanded="true" />
+                <element signature="e#1746#1747#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Leaves.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>System.out.println</find>
+      <find>compOff</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Gender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveTypes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveOptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/OptionalLeaves.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/PublicHolidays.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveTrackerSpringBoot.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeRepository.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/CompOffRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/MaternityLeave.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/PaternityLeave.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveAcuralManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/CompOff.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/hashedin/huleavetracking/LeaveManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveStore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeStore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Leaves.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="637" />
+    <option name="y" value="25" />
+    <option name="width" value="729" />
+    <option name="height" value="743" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huleavetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="huleavetracking" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550735880594" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.hashedin.huleavetracking" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+>>>>>>> DatabaseCreation
   <component name="RunManager" selected="Application.LeaveTrackerSpringBoot">
     <configuration name="Employee" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.hashedin.huleavetracking.Employee" />
@@ -92,4 +369,473 @@
       </list>
     </recent_temporary>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4089b44-0587-45cc-a56c-2540af90b814" name="Default Changelist" comment="" />
+      <created>1550475939762</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550475939762</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 20m 25s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 20m 31s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 20m 42s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 21m 34s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 21m 51s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 22m 26s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 22m 39s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 22m 47s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 22m 56s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LeaveManagerTest_compOffLeaveOnSameMonth - 2019.02.20 at 19h 40m 28s.xml">
+      <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.12609737" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32899022" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32736155" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50039905" side_tool="true" weight="0.32899022" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49960095" visible="true" weight="0.4723127" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39739415" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32960895" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/jdk/internal/reflect/MethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runner/JUnitCore.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Gender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveAcural.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveOptional.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="172" selection-start-line="172" selection-end-line="172" />
+          <folding>
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2155#2156#0" expanded="true" />
+            <element signature="e#6484#6648#0" expanded="true" />
+            <element signature="e#6647#6648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/ExpectException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/time/LocalDate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/OptionalLeaves.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/huleavetracking.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/PublicHolidays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="53" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/function/Consumer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+          <folding>
+            <element signature="e#165#166#0" expanded="true" />
+            <element signature="e#194#195#0" expanded="true" />
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#279#280#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveTrackerSpringBoot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/CompOffRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/PaternityLeave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/MaternityLeave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveAcuralManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="19" selection-start-line="19" selection-end-line="31" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+            <element signature="e#797#798#0" expanded="true" />
+            <element signature="e#860#861#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+            <element signature="e#979#980#0" expanded="true" />
+            <element signature="e#1028#1029#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/CompOff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/hashedin/huleavetracking/LeaveManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="122" column="68" lean-forward="true" selection-start-line="122" selection-start-column="68" selection-end-line="122" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/LeaveManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/EmployeeStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="27" column="86" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1661#1662#0" expanded="true" />
+            <element signature="e#1746#1747#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hashedin/huleavetracking/Leaves.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>huleavetracking</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: junit:junit:4.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+>>>>>>> DatabaseCreation
 </project>
