@@ -20,7 +20,7 @@ public class EmployeeController {
 
     @RequestMapping("/employees")
     public List<Employee> getAllEmployees(){
-        return employeeStore.displayEmployee();
+        return employeeStore.getEmployees();
 
     }
     @RequestMapping("/")
@@ -38,7 +38,6 @@ public class EmployeeController {
         LocalDate dateInLocalDateFormat = LocalDate.parse(date);
         Employee emp =new Employee(id,gender,dateInLocalDateFormat);
         employeeStore.addEmployee(emp);
-        System.out.println(emp);
         return "Successfully added";
     }
 

@@ -6,14 +6,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 
-@Entity
+
+//@Entity
 public class Employee {
 
-    @Id
+    //@Id
     private int employeeId;
     private Gender gender;
     private int maternityLeave=0;
