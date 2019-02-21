@@ -1,13 +1,17 @@
 package com.hashedin.huleavetracking;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 
 @RestController
@@ -25,7 +29,7 @@ public class EmployeeController {
     }
 
     @RequestMapping("/employee/{id}")
-    public @ResponseBody Employee getEmployee(@PathVariable(value="id") int id){
+    public Optional<Employee> getEmployee(@PathVariable(value="id") int id){
         return  employeeStore.getEmployeeOnBasisOfId(id);
     }
 
@@ -40,13 +44,42 @@ public class EmployeeController {
     public String updateEmployee(@RequestBody Employee employee)
     {
         employeeStore.updateEmployee(employee);
-        return "Sucessfully added";
+        return "Sucessfully updated";
     }
 
     @RequestMapping(value = "/employee/", method = RequestMethod.DELETE)
     public String deleteEmployee(@RequestBody Employee employee)
     {
         employeeStore.deleteEmployee(employee);
-        return "Sucessfully added";
+        return "Sucessfully deleted";
     }
+
+    @RequestMapping(value = "/employee/{id}/leavebalance/")
+    public String leaveBalance(@RequestParam(value ="id") int id)
+    {
+        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
+        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
+    }
+
+    @RequestMapping(value = "/employee/{id}/workedhours/")
+    public String workedHours(@RequestParam(value ="id") int id)
+    {
+        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
+        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
+    }
+
+    @RequestMapping(value = "/employee/{id}/compoffbalance/")
+    public String compOffBalance(@RequestParam(value ="id") int id)
+    {
+        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
+        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
+    }
+
+    @RequestMapping(value = "/employee/{id}/leavehistory/")
+    public String leaveHistory(@RequestParam(value ="id") int id)
+    {
+        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
+        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
+    }
+
 }

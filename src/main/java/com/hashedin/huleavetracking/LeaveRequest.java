@@ -1,23 +1,32 @@
 package com.hashedin.huleavetracking;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
+
 import java.time.LocalDate;
 
 @Entity
 public class LeaveRequest {
-    
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int leaveRequestId;
     private int employeeId;
     private LocalDate startDate;
     private LocalDate endDate;
+    @Enumerated(EnumType.STRING)
     private LeaveType type;
+    @Enumerated(EnumType.STRING)
+    private LeaveOptions option;
 
     public LeaveOptions getOption() {return option;}
 
     public void setOption(LeaveOptions option) {this.option = option; }
-
-    private LeaveOptions option;
 
     public LeaveType getType() { return type;}
 

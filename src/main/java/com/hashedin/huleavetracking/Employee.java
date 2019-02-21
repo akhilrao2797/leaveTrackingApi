@@ -1,16 +1,9 @@
 package com.hashedin.huleavetracking;
 
-
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 
 @Entity
 public class Employee {
@@ -100,10 +93,12 @@ public class Employee {
         */
        int balance;
         int duration = (int) ChronoUnit.MONTHS.between(joiningDate, LocalDate.now());
-        if(joiningDate.getDayOfMonth() < 15)
+        if(joiningDate.getDayOfMonth() < 15) {
             balance = duration * 2;
-        else
+        }
+        else {
             balance = duration * 2 - 1;
+        }
         this.balanceLeaves = balance;
     }
 
