@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/huleavetracking$Employee.ic" NAME="Employee Coverage Results" MODIFIED="1550575536081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.hashedin.huleavetracking.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/huleavetracking$LeaveManagerTest.ic" NAME="LeaveManagerTest Coverage Results" MODIFIED="1550577473097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.hashedin.huleavetracking.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="RunManager" selected="Application.LeaveTrackerSpringBoot">
+    <configuration name="Employee" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hashedin.huleavetracking.Employee" />
+      <module name="huleavetracking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hashedin.huleavetracking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeaveTrackerSpringBoot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hashedin.huleavetracking.LeaveTrackerSpringBoot" />
+      <module name="huleavetracking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hashedin.huleavetracking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeaveManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="huleavetracking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hashedin.huleavetracking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hashedin.huleavetracking" />
+      <option name="MAIN_CLASS_NAME" value="com.hashedin.huleavetracking.LeaveManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeaveManagerTest.OptionalLeaveTaken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="huleavetracking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hashedin.huleavetracking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hashedin.huleavetracking" />
+      <option name="MAIN_CLASS_NAME" value="com.hashedin.huleavetracking.LeaveManagerTest" />
+      <option name="METHOD_NAME" value="OptionalLeaveTaken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeaveManagerTest.compOffLeaveOnSameMonth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="huleavetracking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hashedin.huleavetracking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hashedin.huleavetracking" />
+      <option name="MAIN_CLASS_NAME" value="com.hashedin.huleavetracking.LeaveManagerTest" />
+      <option name="METHOD_NAME" value="compOffLeaveOnSameMonth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LeaveTrackerSpringBoot" />
+        <item itemvalue="JUnit.LeaveManagerTest.compOffLeaveOnSameMonth" />
+        <item itemvalue="JUnit.LeaveManagerTest" />
+        <item itemvalue="Application.Employee" />
+        <item itemvalue="JUnit.LeaveManagerTest.OptionalLeaveTaken" />
+      </list>
+    </recent_temporary>
+  </component>
+</project>
