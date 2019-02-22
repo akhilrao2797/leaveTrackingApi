@@ -2,15 +2,13 @@ package com.hashedin.huleavetracking;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class PublicHolidays {
 
     private ArrayList<LocalDate> publicHolidayList = new ArrayList<>();
-    //private ArrayList<LocalDate> optionalLeaves = new ArrayList<>();
-    private Map<Integer, OptionalLeaves> optionalLeaves = new HashMap<>();
+    private ArrayList<LocalDate> optionalLeaves = new ArrayList<>();
+    //private Map<Integer, OptionalLeaves> optionalLeaves = new HashMap<>();
     private Employee employee;
     private LeaveRequest request;
 
@@ -28,12 +26,8 @@ public class PublicHolidays {
         publicHolidayList.add(LocalDate.of(year, 10, 2));
         publicHolidayList.add(LocalDate.of(year, 10, 20));
         publicHolidayList.add(LocalDate.of(year, 12, 25));
-        OptionalLeaves optionalLeavesDate1 = new OptionalLeaves(LocalDate.of(year, 8, 10),
-                LocalDate.of(year, 4, 13));
-        optionalLeaves.put(1, optionalLeavesDate1);
-        OptionalLeaves optionalLeavesDate2 = new OptionalLeaves(LocalDate.of(year, 7, 11),
-                LocalDate.of(year, 1, 23));
-        optionalLeaves.put(2, optionalLeavesDate2);
+        optionalLeaves.add(LocalDate.of(year, 8, 10));
+        optionalLeaves.add(LocalDate.of(year, 4, 12));
     }
 
     public int overlappingPublicHolidays(int holidays) {
@@ -46,26 +40,17 @@ public class PublicHolidays {
                 }
             }
         }
-        for (Map.Entry<Integer, OptionalLeaves> entry : optionalLeaves.entrySet()) {
-            if (!entry.getValue().isUsed()) {
-                if(!(entry.getValue().getLocalDate1().getDayOfWeek().toString().equalsIgnoreCase("SATURDAY")
-                        || entry.getValue().getLocalDate1().toString().equalsIgnoreCase("SUNDAY"))) {
-                    if (request.getStartDate().isBefore(entry.getValue().getLocalDate1().minusDays(1))
-                            && request.getStartDate().isBefore(entry.getValue().getLocalDate1().minusDays(1))) {
-                        employee.setTakenOptionalLeave(!employee.isTakenOptionalLeave());
-                        holidays -= 1;
-                        entry.getValue().setUsed(true);
-                    }
+        for(LocalDate date:optionalLeaves){
+            if(!employee.isTakenOptionalLeave()){
+                if(!(date.getDayOfWeek().name().equalsIgnoreCase("Saturday")
+                        || date.getDayOfWeek().name().equalsIgnoreCase("Sunday"))){
+                    System.out.println("Optional leave considered");
+                    employee.setTakenOptionalLeave(true);
+                    holidays-=1;
                 }
-                if(!(entry.getValue().getLocalDate2().getDayOfWeek().toString().equalsIgnoreCase("SATURDAY")
-                        || entry.getValue().getLocalDate2().toString().equalsIgnoreCase("SUNDAY"))) {
-                    if (request.getStartDate().isBefore(entry.getValue().getLocalDate2().minusDays(1))
-                            && request.getStartDate().isBefore(entry.getValue().getLocalDate2().minusDays(1))) {
-                        employee.setTakenOptionalLeave(!employee.isTakenOptionalLeave());
-                        holidays -= 1;
-                        entry.getValue().setUsed(true);
-                    }
-                }
+            }
+            else{
+                break;
             }
         }
         return holidays;

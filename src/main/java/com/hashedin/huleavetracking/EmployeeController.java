@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -29,7 +28,7 @@ public class EmployeeController {
     }
 
     @RequestMapping("/employee/{id}")
-    public Optional<Employee> getEmployee(@PathVariable(value="id") int id){
+    public Employee getEmployee(@PathVariable(value="id") int id){
         return  employeeStore.getEmployeeOnBasisOfId(id);
     }
 
@@ -55,23 +54,29 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employee/{id}/leavebalance/")
-    public String leaveBalance(@RequestParam(value ="id") int id)
+    public String leaveBalance(@PathVariable(value ="id") int id)
     {
-        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
-        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
+        int leaveBalances=employeeStore.getEmployeeOnBasisOfId(id).getBalanceLeaves();
+        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances+" days" ;
     }
 
-    @RequestMapping(value = "/employee/{id}/workedhours/")
-    public String workedHours(@RequestParam(value ="id") int id)
+    @RequestMapping(value = "/employee/{id}/workedhours/",method = RequestMethod.GET)
+    public ArrayList<LogExtraWorkedHours> workedHours(@PathVariable(value ="id") int empId)
     {
-        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
-        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
+        return employeeStore.getExtraWorkedHours(empId);
+    }
+
+    @RequestMapping(value = "/employee/{id}/workedhours/",method = RequestMethod.POST)
+    public String logworkedHours(@PathVariable(value ="id") int empId,
+                                 @RequestBody LogExtraWorkedHours logExtraWorkedHours)
+    {
+        return employeeStore.postExtraWorkedHours(empId,logExtraWorkedHours);
     }
 
     @RequestMapping(value = "/employee/{id}/compoffbalance/")
-    public String compOffBalance(@RequestParam(value ="id") int id)
+    public String compOffBalance(@PathVariable(value ="id") int id)
     {
-        int compOff=employeeStore.getEmployeeOnId(id).getCompOff();
-        return "CompOff Balance for Employee Id : "+id+"  =  "+compOff ;
+        int compOff=employeeStore.getEmployeeOnBasisOfId(id).getCompOff();
+        return "CompOff Balance for Employee Id : "+id+"  is  "+compOff + " days";
     }
 }

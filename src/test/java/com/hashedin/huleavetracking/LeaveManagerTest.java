@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.junit.Assert.*;
 
@@ -19,6 +20,8 @@ public class LeaveManagerTest {
     private EmployeeRepository employeeRepository;
     @Autowired
     private LeaveRepository leaveRepository;
+    @Autowired
+    private LogExtraWorkedHoursRepository logExtraWorkedHoursRepository;
     private EmployeeStore employeeStore;
     private LeaveManager leaveManager;
     private LeaveStore leaveStore;
@@ -26,7 +29,7 @@ public class LeaveManagerTest {
 
     @Before
     public void startBeforeTesting(){
-        this.employeeStore= new EmployeeStore(employeeRepository);
+        this.employeeStore= new EmployeeStore(employeeRepository,logExtraWorkedHoursRepository);
         this.leaveManager= new LeaveManager();
         this.leaveStore= new LeaveStore(employeeRepository,leaveRepository,employeeStore,leaveManager);
     }
@@ -285,14 +288,44 @@ public class LeaveManagerTest {
         leaveRepository.deleteAll();
     }
 
-//    @Test
-//    public void optionalLeaveTaken() {
-//        employeeRepository.save(new Employee(10, Gender.MALE, LocalDate.now().minusYears(2), 2,
-//                0, 0, 3));
-//        LeaveRequest request = new LeaveRequest(10, LocalDate.now(),
-//                LocalDate.now().plusDays(1), "OutOfOffice", "nonBlanketCoverage");
-//        LeaveResponse response = leaveStore.applyLeave(request);
-//        assertEquals(LeaveStatus.ACCEPTED, response.getStatus());
-//    }
+    @Test
+    public void optionalLeaveTaken() {
+        employeeRepository.save(new Employee(10, Gender.MALE, LocalDate.now().minusYears(2), 2,
+                0, 0, 3));
+        LeaveRequest request = new LeaveRequest(10, LocalDate.now().plusMonths(1).plusDays(20),
+                LocalDate.now().plusMonths(1).plusDays(24), "OutOfOffice", "nonBlanketCoverage");
+        LeaveResponse response = leaveStore.applyLeave(request);
+        assertEquals(LeaveStatus.ACCEPTED, response.getStatus());
+        employeeRepository.deleteAll();
+        leaveRepository.deleteAll();
+
+    }
+
+    @Test
+    public void logWorkTimeInSufficient() {
+        employeeRepository.save(new Employee(10, Gender.MALE, LocalDate.now().minusYears(2), 0,
+                0, 0, 3));
+        employeeStore.postExtraWorkedHours(10,new LogExtraWorkedHours(10,
+                LocalDateTime.now().minusDays(10).minusHours(4),LocalDateTime.now().minusDays(10).plusHours(1)));
+        LeaveRequest request = new LeaveRequest(10, LocalDate.now().plusDays(2),
+                LocalDate.now().plusDays(4), "CompOff", "nonBlanketCoverage");
+        System.out.println(employeeRepository.findById(10).get().getCompOff());
+        LeaveResponse response = leaveStore.applyLeave(request);
+        assertEquals(LeaveStatus.REJECTED, response.getStatus());
+    }
+
+    // Checks if it is a saturday or sunday and also the time of service given.(>=<  8)
+    @Test
+    public void logWorkTimeSufficient() {
+        employeeRepository.save(new Employee(10, Gender.MALE, LocalDate.now().minusYears(2), 0,
+                0, 0, 3));
+        employeeStore.postExtraWorkedHours(10,new LogExtraWorkedHours(10,
+                LocalDateTime.now().minusDays(5).minusHours(8),LocalDateTime.now().minusDays(5).plusHours(1)));
+        LeaveRequest request = new LeaveRequest(10, LocalDate.now().plusDays(2),
+                LocalDate.now().plusDays(4), "CompOff", "nonBlanketCoverage");
+        System.out.println(employeeRepository.findById(10).get().getCompOff());
+        LeaveResponse response = leaveStore.applyLeave(request);
+        assertEquals(LeaveStatus.ACCEPTED, response.getStatus());
+    }
 
 }

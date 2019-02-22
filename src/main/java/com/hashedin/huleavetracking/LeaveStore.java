@@ -36,7 +36,7 @@ public class LeaveStore {
     }
 
     public LeaveResponse applyLeave(LeaveRequest request){
-        Employee employee=employeeStore.getEmployeeOnBasisOfId(request.getEmployeeId()).get();
+        Employee employee=employeeStore.getEmployeeOnBasisOfId(request.getEmployeeId());
         LeaveResponse response = leaveManager.apply(employee,request);
         if(response.getStatus() == LeaveStatus.ACCEPTED)
         {
