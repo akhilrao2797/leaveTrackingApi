@@ -7,7 +7,11 @@ import static java.time.temporal.ChronoUnit.DAYS;
 public class MaternityLeave {
 
     public LeaveResponse maternityLeaveGrant(Employee employee, LeaveRequest request){
-        if (employee.getGender() == Gender.MALE) {
+        if(employee.getNoOfChildren() >2){
+            return  new LeaveResponse(LeaveStatus.REJECTED,
+                    "Cannot grant leave for more than 2 children birth");
+        }
+        if (employee.getGender() == "MALE") {
             return new LeaveResponse(LeaveStatus.REJECTED, "Gender and leave mismatch");
         }
         if (employee.getMaternityLeave() > 2) {

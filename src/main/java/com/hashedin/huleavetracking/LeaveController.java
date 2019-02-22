@@ -1,39 +1,49 @@
-//
-//package com.hashedin.huleavetracking;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.RequestBody;
-//
-//import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//@RestController
-//public class LeaveController {
-//    @Autowired
-//    private EmployeeStore employeeStore;
-//    @Autowired
-//    private LeaveStore leaveStore;
-//    @Autowired
-//    private LeaveManager manager;
-//    @Autowired
-//    private LeaveRepository leaveRepository;
-//    @Autowired
-//    public LeaveController(LeaveStore leaveStore,EmployeeStore employeeStore,LeaveManager manager,
-//                           LeaveRepository leaveRepository){
-//        this.employeeStore=employeeStore;
-//        this.leaveStore=leaveStore;
-//        this.manager =manager;
-//        this.leaveRepository=leaveRepository;
-//    }
-//
-//    @RequestMapping("/leave/apply/")
-//    public LeaveResponse applyLeave(@RequestBody LeaveRequest request)
-//    {
-//        Employee employee=employeeStore.getEmployeeOnId(request.getEmployeeId());
-//        LeaveResponse response = manager.apply(employee,request);
-//        if(response.getStatus() == LeaveStatus.ACCEPTED)
-//        {
-//            leaveRepository.save(response.getStatus());
-//        }
-//        return response;
-//    }
-//}
+
+package com.hashedin.huleavetracking;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
+
+import java.util.ArrayList;
+
+@RestController
+public class LeaveController {
+    @Autowired
+    private EmployeeStore employeeStore;
+    @Autowired
+    private LeaveStore leaveStore;
+    @Autowired
+    private LeaveRepository leaveRepository;
+    @Autowired
+    public LeaveController(LeaveStore leaveStore,EmployeeStore employeeStore,
+                           LeaveRepository leaveRepository){
+        this.employeeStore=employeeStore;
+        this.leaveStore=leaveStore;
+        this.leaveRepository=leaveRepository;
+    }
+
+    @RequestMapping(value="/leave/apply/",method = RequestMethod.POST)
+    public String applyLeave(@RequestBody LeaveRequest request)
+    {
+        return leaveStore.applyLeave(request);
+    }
+
+    @RequestMapping(value="/leaves/")
+    public ArrayList<LeaveRequest> applyLeave()
+    {
+        return leaveStore.getAllLeaves();
+    }
+
+    @RequestMapping("/employee/{id}/leavehistory/")
+    public ArrayList<LeaveRequest> leaveHistoryOfAnEmployee(@PathVariable("id") int id){
+        return leaveStore.leavesOfAnEmployeeById(id);
+    }
+}

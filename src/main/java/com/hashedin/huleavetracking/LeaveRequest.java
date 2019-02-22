@@ -1,12 +1,7 @@
 package com.hashedin.huleavetracking;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import javax.persistence.Enumerated;
-import javax.persistence.EnumType;
 
 import java.time.LocalDate;
 
@@ -14,23 +9,28 @@ import java.time.LocalDate;
 public class LeaveRequest {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int leaveRequestId;
     private int employeeId;
     private LocalDate startDate;
     private LocalDate endDate;
-    @Enumerated(EnumType.STRING)
-    private LeaveType type;
-    @Enumerated(EnumType.STRING)
-    private LeaveOptions option;
+    private String type;
+    private String option;
 
-    public LeaveOptions getOption() {return option;}
+    public String getType() {
+        return type;
+    }
 
-    public void setOption(LeaveOptions option) {this.option = option; }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-    public LeaveType getType() { return type;}
+    public String getOption() {
+        return option;
+    }
 
-    public void setType(LeaveType type) {this.type = type;}
+    public void setOption(String option) {
+        this.option = option;
+    }
+
 
     public int getEmployeeId() {
         return employeeId;
@@ -40,12 +40,12 @@ public class LeaveRequest {
         this.employeeId = employeeId;
     }
 
-    public LocalDate getStartdate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartdate(LocalDate startdate) {
-        this.startDate = startdate;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
     public LocalDate getEndDate() {
@@ -56,9 +56,11 @@ public class LeaveRequest {
         this.endDate = endDate;
     }
 
-    public LeaveRequest(Employee employee, LocalDate startdate, LocalDate endDate,LeaveType type, LeaveOptions option) {
-        this.employeeId = employee.getEmployeeId();
-        this.startDate = startdate;
+    public LeaveRequest(){}
+
+    public LeaveRequest(int employeeId, LocalDate startDate, LocalDate endDate,String type, String option) {
+        this.employeeId = employeeId;
+        this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
         this.option = option;

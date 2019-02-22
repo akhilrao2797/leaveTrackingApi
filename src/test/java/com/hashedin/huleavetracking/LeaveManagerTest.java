@@ -25,11 +25,9 @@
 //    // Start Date less than end date
 //
 //    @Before
-//    public void startBeforeTesting(EmployeeRepository employeeRepository,LeaveRepository leaveRepository){
-//        this.employeeRepository=employeeRepository;
+//    public void startBeforeTesting(){
 //        this.employeeStore= new EmployeeStore(employeeRepository);
 //        this.leaveManager= new LeaveManager();
-//        this.leaveRepository=leaveRepository;
 //    }
 //
 //    @Test(expected = IllegalArgumentException.class)

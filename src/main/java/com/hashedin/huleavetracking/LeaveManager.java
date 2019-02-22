@@ -6,20 +6,23 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 import java.time.Period;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 @Service
 public class LeaveManager {
 
     // counts the actual no of holidays excluding the weekends
-    public int noOfActualHolidays(LeaveRequest request,PublicHolidays holidaymanager) {
-        if (request.getOption() == LeaveOptions.blanketCoverage) {
-            Period period = Period.between(request.getStartdate(), request.getEndDate());
+    public int noOfActualHolidays(LeaveRequest request,Employee employee) {
+        PublicHolidays holidaymanager =new PublicHolidays(employee,request);
+        if (request.getOption() == "blanketCoverage") {
+            Period period = Period.between(request.getStartDate(), request.getEndDate());
             return period.getDays();
         } else {
-            final DayOfWeek startW = request.getStartdate().getDayOfWeek();
+            final DayOfWeek startW = request.getStartDate().getDayOfWeek();
             final DayOfWeek endW = request.getEndDate().getDayOfWeek();
-            final int days = (int) ChronoUnit.DAYS.between(request.getStartdate(),
+            final int days = (int) ChronoUnit.DAYS.between(request.getStartDate(),
                     request.getEndDate());
             final int daysWithoutWeekends = days - 2 * ((days + startW.getValue()) / 7);
             int holidays = daysWithoutWeekends;
@@ -34,65 +37,85 @@ public class LeaveManager {
         }
     }
 
-   private boolean overlappingDates(Employee employee, LeaveRequest request){
+    private boolean overlappingDates(Employee employee, LeaveRequest request){
+        if(employee.getStartLeaveDate() != null || employee.getEndLeaveDate() != null) {
+            LocalDate startLeaveDate = employee.getStartLeaveDate();
+            LocalDate endLeaveDate = employee.getEndLeaveDate();
+            Date startDate = Date.from(startLeaveDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+            Date enddate = Date.from(endLeaveDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
 
-            if(request.getStartdate().isAfter(employee.getStartLeaveDate())
-                    && request.getEndDate().isBefore(employee.getEndDate())) {
-                return false;
-            }
-            if(request.getStartdate().isBefore(employee.getStartLeaveDate())
-                    && request.getEndDate().isBefore(employee.getEndDate())
-                    && request.getStartdate().isBefore(employee.getEndDate())){
-                return false;
-            }
-            if(request.getStartdate().isBefore(employee.getStartLeaveDate())
-                    && request.getEndDate().isAfter(employee.getEndDate())){
-                return false;
-            }
-            if(request.getStartdate().isAfter(employee.getStartLeaveDate())
-                    && request.getEndDate().isAfter(employee.getEndDate())
-                    && request.getEndDate().isBefore(employee.getEndDate())){
-                return false;
-            }
-        return true;
+            LocalDate requestStartDate = request.getStartDate();
+            LocalDate requestEndDate = request.getEndDate();
+            Date requestedStartDate=Date.from(requestStartDate.atStartOfDay()
+                    .atZone(ZoneId.systemDefault()).toInstant());
+            Date requestedEndDate = Date.from(requestEndDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+            return (startDate.compareTo(requestedStartDate) * requestedStartDate.compareTo(enddate) >= 0 ||
+                    startDate.compareTo(requestedEndDate) * requestedEndDate.compareTo(enddate) >= 0);
+        }
+        else
+        {
+            return false;
+        }
+
+//            if(request.getStartdate().isAfter(employee.getStartLeaveDate())
+//                    && request.getEndDate().isBefore(employee.getEndLeaveDate())) {
+//                return false;
+//            }
+//            if(request.getStartdate().isBefore(employee.getStartLeaveDate())
+//                    && request.getEndDate().isBefore(employee.getEndLeaveDate())
+//                    && request.getStartdate().isBefore(employee.getEndLeaveDate())){
+//                return false;
+//            }
+//            if(request.getStartdate().isBefore(employee.getStartLeaveDate())
+//                    && request.getEndDate().isAfter(employee.getEndLeaveDate())){
+//                return false;
+//            }
+//            if(request.getStartdate().isAfter(employee.getStartLeaveDate())
+//                    && request.getEndDate().isAfter(employee.getEndLeaveDate())
+//                    && request.getEndDate().isBefore(employee.getEndLeaveDate())){
+//                return false;
+//            }
+//        return true;
     }
 
     public LeaveResponse apply(Employee employee, LeaveRequest request) {
-        PublicHolidays holidaymanager =new PublicHolidays(employee,request);
-        if (request.getStartdate().isBefore(LocalDate.now())) {
+        System.out.println(employee.getEmployeeId());
+        System.out.println(request.getStartDate()+" "+request.getEndDate()+" "+request.getType());
+        if (request.getStartDate().isBefore(LocalDate.now())) {
             return new LeaveResponse(LeaveStatus.REJECTED,"Date is not properly mentioned");
         }
 
-        if (request.getStartdate().isAfter(request.getEndDate())) {
+        if (request.getStartDate().isAfter(request.getEndDate())) {
             return new LeaveResponse(LeaveStatus.REJECTED,"Date is not properly mentioned");
         }
 
-        if (request.getType() == LeaveType.PaternityLeave) {
+        if (request.getType().equalsIgnoreCase("PaternityLeave")) {
             PaternityLeave maternityLeave =  new PaternityLeave();
             LeaveResponse response = maternityLeave.paternityLeaveGrant(employee,request);
             return response;
         }
 
-        if (request.getType() == LeaveType.MaternityLeave) {
+        if (request.getType().equalsIgnoreCase("MaternityLeave")) {
             MaternityLeave maternityLeave =  new MaternityLeave();
             LeaveResponse response = maternityLeave.maternityLeaveGrant(employee,request);
+            System.out.println(response);
             return response;
         }
 
-        int noOfDays = noOfActualHolidays(request,holidaymanager);
+        int noOfDays = noOfActualHolidays(request,employee);
 
-        if(request.getType() == LeaveType.CompOff){
+        if(request.getType().equalsIgnoreCase("CompOff")){
             CompOff compOff = new CompOff(employee);
             compOff.compOffLeaveGrant(employee, noOfDays);
         }
 
-        if(!overlappingDates(employee,request)) {
-            return new LeaveResponse(LeaveStatus.REJECTED, "Date os holiday already mentioned");
+        if(overlappingDates(employee,request)) {
+            return new LeaveResponse(LeaveStatus.REJECTED, "Leave already granted");
         }
         if (employee.getBalanceLeaves() >= noOfDays) {
             if (noOfDays <= 2) {
-                employee.setStartLeaveDate(request.getStartdate());
-                employee.setEndDate(request.getEndDate());
+                employee.setStartLeaveDate(request.getStartDate());
+                employee.setEndLeaveDate(request.getEndDate());
                 employee.setBalanceLeaves(employee.getBalanceLeaves()- noOfDays);
                 LeaveResponse leaveResponse = new LeaveResponse(LeaveStatus.ACCEPTED, "Accepted due to " +
                         "a valid reason");

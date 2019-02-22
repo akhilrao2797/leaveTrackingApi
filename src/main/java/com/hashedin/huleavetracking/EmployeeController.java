@@ -71,15 +71,7 @@ public class EmployeeController {
     @RequestMapping(value = "/employee/{id}/compoffbalance/")
     public String compOffBalance(@RequestParam(value ="id") int id)
     {
-        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
-        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
+        int compOff=employeeStore.getEmployeeOnId(id).getCompOff();
+        return "CompOff Balance for Employee Id : "+id+"  =  "+compOff ;
     }
-
-    @RequestMapping(value = "/employee/{id}/leavehistory/")
-    public String leaveHistory(@RequestParam(value ="id") int id)
-    {
-        int leaveBalances=employeeStore.getEmployeeOnId(id).getBalanceLeaves();
-        return "Leave Balance for Employee Id : "+id+"  =  "+leaveBalances ;
-    }
-
 }
