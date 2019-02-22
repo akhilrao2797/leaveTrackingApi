@@ -12,13 +12,13 @@ public class PaternityLeave {
         }
         if (employee.getPaternityLeave() > 2){
             return new LeaveResponse(LeaveStatus.REJECTED,"Exceeded max. paternity leaves");}
-        if (employee.getPaternityLeave() < 2) {
-            employee.setPaternityLeave(employee.getPaternityLeave() + 1);
-           // employee.setLeavesAtPresent(request.getStartdate(), request.getStartdate().plusMonths(1));
-            return new LeaveResponse(LeaveStatus.ACCEPTED, "Leave granted as no. of children less than 2");
-        }
 
-        return new LeaveResponse(LeaveStatus.ACCEPTED, "Leave granted as no. of children less than 2");
+        employee.setStartLeaveDate(request.getStartDate());
+        employee.setEndLeaveDate(request.getStartDate().plusMonths(1));
+        employee.setPaternityLeave(employee.getPaternityLeave() + 1);
+           // employee.setLeavesAtPresent(request.getStartDate(), request.getStartDate().plusMonths(1));
+
+        return new LeaveResponse(LeaveStatus.ACCEPTED, "Eligible for leave and is granted");
 
     }
 }

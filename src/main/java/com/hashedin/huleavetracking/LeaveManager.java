@@ -129,6 +129,8 @@ public class LeaveManager {
                 employee.setStartLeaveDate(request.getStartDate());
                 employee.setEndLeaveDate(request.getEndDate());
                 employee.setBalanceLeaves(employee.getBalanceLeaves()- noOfDays);
+                employee.setStartLeaveDate(request.getStartDate());
+                employee.setEndLeaveDate(request.getEndDate());
                 LeaveResponse leaveResponse = new LeaveResponse(LeaveStatus.ACCEPTED, "Accepted due to " +
                         "a valid reason");
                 return leaveResponse;
