@@ -1,6 +1,5 @@
 package com.hashedin.huleavetracking;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
@@ -14,7 +13,10 @@ public class CompOff {
     private int month;
 
     public CompOff(Employee employee) {
+        this.logWorkDays=employee.getCompOff();
+        this.month=employee.getCompOffValidMonth();
         this.employee = employee;
+        this.used=false;
     }
 
     public int getLogWorkDays() {
@@ -35,32 +37,39 @@ public class CompOff {
 
     public void logExtraWorkHours(LocalDateTime startTime, LocalDateTime endTime) {
         if (startTime.isAfter(endTime)) {
-            throw new IllegalArgumentException("Time entered is not proper");
+//            throw new IllegalArgumentException("Time entered is not proper");
+            return;
         }
         if (ChronoUnit.HOURS.between(startTime, endTime) < 8) {
-            throw new IllegalArgumentException("Cant add a new compensation off as the time is not more than 8 hours");
+            return;
+//         throw new IllegalArgumentException("Cant add a new compensation off as the time is not more than 8 hours");
         }
         if (startTime.getDayOfWeek() != endTime.getDayOfWeek()) {
-            throw new IllegalArgumentException("Work on same day only can be loaded ");
+            return;
+//            throw new IllegalArgumentException("Work on same day only can be loaded ");
         }
         if ((endTime.getDayOfWeek().name().toUpperCase().equalsIgnoreCase("SATURDAY")) ||
                 (endTime.getDayOfWeek().name().equalsIgnoreCase("SUNDAY"))) {
             logWorkDays += 1;
             this.month = endTime.getMonth().getValue();
+            employee.setCompOffValidMonth(month);
+            employee.setCompOff(logWorkDays);
         } else {
-            throw new IllegalArgumentException("Weekend or public holiday work is only counted");
+            return;
+//            throw new IllegalArgumentException("Weekend or public holiday work is only counted");
         }
     }
-    public void compOffLeaveGrant(Employee employee, int noOFDays) {
+    public LeaveResponse compOffLeaveGrant(Employee employee, int noOFDays,LeaveRequest request) {
+        System.out.println(this.logWorkDays);
         if (logWorkDays < 1 || used == true) {
-            throw new IllegalArgumentException("No extra work hours logged");
+            return new LeaveResponse(LeaveStatus.REJECTED,"No extra work hours logged");
         }
-        if (month + 1 != LocalDate.now().getMonthValue() - 1) {
+        if (month  != request.getStartDate().getMonthValue()) {
             System.out.println(month + " " + Calendar.getInstance().get(Calendar.MONTH));
-            throw new IllegalArgumentException("extra work days cant be carried forward");
+            return new LeaveResponse(LeaveStatus.REJECTED,"extra work days cant be carried forward");
         }
         if (logWorkDays < noOFDays) {
-            throw new IllegalArgumentException("more number of days asked");
+            return new LeaveResponse(LeaveStatus.REJECTED,"more number of days asked");
         }
 
         logWorkDays -= noOFDays;
@@ -69,6 +78,8 @@ public class CompOff {
         } else {
             used = false;
         }
+        employee.setCompOff(logWorkDays);
+        return new LeaveResponse(LeaveStatus.ACCEPTED,"CompOff leave Accepted");
     }
 
 }

@@ -19,7 +19,16 @@ public class Employee {
     private LocalDate startLeaveDate;
     private LocalDate endLeaveDate;
     private int compOff;
+    private int compOffValidMonth;
+    private int noOfChildren;
 
+    public int getCompOffValidMonth() {
+        return compOffValidMonth;
+    }
+
+    public void setCompOffValidMonth(int compOffValidMonth) {
+        this.compOffValidMonth = compOffValidMonth;
+    }
     public int getNoOfChildren() {
         return noOfChildren;
     }
@@ -27,8 +36,6 @@ public class Employee {
     public void setNoOfChildren(int noOfChildren) {
         this.noOfChildren = noOfChildren;
     }
-
-    private int noOfChildren;
 
 
     public Employee(){}
@@ -42,6 +49,7 @@ public class Employee {
         this.takenOptionalLeave =false;
         this.isOnMaternityOrPaternityLeave = false;
         this.compOff=compOff;
+        this.compOffValidMonth=LocalDate.now().getMonthValue();
         this.noOfChildren = noOfChildren;
         this.maternityLeaveTaken = maternityOrPaternityLeave;
         this.paternityLeaveTaken = maternityOrPaternityLeave;

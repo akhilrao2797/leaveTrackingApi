@@ -35,16 +35,15 @@ public class LeaveStore {
         return leaveHistory;
     }
 
-    public String applyLeave(LeaveRequest request){
+    public LeaveResponse applyLeave(LeaveRequest request){
         Employee employee=employeeStore.getEmployeeOnBasisOfId(request.getEmployeeId()).get();
-        LeaveManager manager =new LeaveManager();
-        LeaveResponse response = manager.apply(employee,request);
+        LeaveResponse response = leaveManager.apply(employee,request);
         if(response.getStatus() == LeaveStatus.ACCEPTED)
         {
             System.out.println("save");
             leaveRepository.save(request);
         }
-        return response.toString();
+        return response;
     }
 
     public ArrayList<LeaveRequest> getAllLeaves(){

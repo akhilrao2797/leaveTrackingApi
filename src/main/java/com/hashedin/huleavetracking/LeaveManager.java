@@ -7,8 +7,9 @@ import java.time.LocalDate;
 
 import java.time.Period;
 import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 @Service
 public class LeaveManager {
@@ -22,7 +23,7 @@ public class LeaveManager {
         } else {
             final DayOfWeek startW = request.getStartDate().getDayOfWeek();
             final DayOfWeek endW = request.getEndDate().getDayOfWeek();
-            final int days = (int) ChronoUnit.DAYS.between(request.getStartDate(),
+            final int days = (int) DAYS.between(request.getStartDate(),
                     request.getEndDate());
             final int daysWithoutWeekends = days - 2 * ((days + startW.getValue()) / 7);
             int holidays = daysWithoutWeekends;
@@ -79,8 +80,9 @@ public class LeaveManager {
     }
 
     public LeaveResponse apply(Employee employee, LeaveRequest request) {
-        System.out.println(employee.getEmployeeId());
-        System.out.println(request.getStartDate()+" "+request.getEndDate()+" "+request.getType());
+//        System.out.println(employee.getEmployeeId());
+//        System.out.println(request.getStartDate()+" "+request.getEndDate()+" "+request.getType());
+
         if (request.getStartDate().isBefore(LocalDate.now())) {
             return new LeaveResponse(LeaveStatus.REJECTED,"Date is not properly mentioned");
         }
@@ -103,10 +105,20 @@ public class LeaveManager {
         }
 
         int noOfDays = noOfActualHolidays(request,employee);
+        if (DAYS.between(employee.getJoiningDate(),request.getStartDate()) < 15) {
+            return new LeaveResponse(LeaveStatus.REJECTED,"No leave balance because of your new existance as " +
+                    "employee");
+        }
+        if (DAYS.between(employee.getJoiningDate(),request.getStartDate()) > 15
+                && DAYS.between(employee.getJoiningDate(),request.getStartDate()) < 30
+                && noOfDays>2) {
+            return new LeaveResponse(LeaveStatus.REJECTED,"No leave balance because of your new existance as " +
+                    "employee");
+        }
 
         if(request.getType().equalsIgnoreCase("CompOff")){
             CompOff compOff = new CompOff(employee);
-            compOff.compOffLeaveGrant(employee, noOfDays);
+            return compOff.compOffLeaveGrant(employee, noOfDays,request);
         }
 
         if(overlappingDates(employee,request)) {

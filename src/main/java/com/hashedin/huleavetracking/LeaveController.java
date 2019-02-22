@@ -33,7 +33,7 @@ public class LeaveController {
     @RequestMapping(value="/leave/apply/",method = RequestMethod.POST)
     public String applyLeave(@RequestBody LeaveRequest request)
     {
-        return leaveStore.applyLeave(request);
+        return leaveStore.applyLeave(request).toString();
     }
 
     @RequestMapping(value="/leaves/")
