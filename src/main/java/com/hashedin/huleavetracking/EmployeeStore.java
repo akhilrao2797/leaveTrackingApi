@@ -47,7 +47,9 @@ public class EmployeeStore {
         employeeRepository.save(employee);
     }
     public void deleteEmployee(Employee employee){
-        employeeRepository.delete(employee);
+        if(employeeRepository.existsById(employee.getEmployeeId())) {
+            employeeRepository.delete(employee);
+        }
     }
 
     public void updateEmployee(Employee employee){

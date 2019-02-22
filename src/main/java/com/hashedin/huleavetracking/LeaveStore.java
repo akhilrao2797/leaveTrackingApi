@@ -26,10 +26,12 @@ public class LeaveStore {
     public ArrayList<LeaveRequest> leavesOfAnEmployeeById(int id){
         ArrayList<LeaveRequest> leaves=new ArrayList<>();
         leaveRepository.findAll().forEach(leaves::add);
-        ArrayList<LeaveRequest> leaveHistory=new ArrayList<>();
-        for(LeaveRequest request: leaves){
-            if(request.getEmployeeId()==id){
-                leaveHistory.add(request);
+        ArrayList<LeaveRequest> leaveHistory = new ArrayList<>();
+        if(employeeRepository.existsById(id)) {
+            for (LeaveRequest request : leaves) {
+                if (request.getEmployeeId() == id) {
+                    leaveHistory.add(request);
+                }
             }
         }
         return leaveHistory;

@@ -37,8 +37,9 @@ public class LeaveController {
     }
 
     @RequestMapping(value="/leaves/")
-    public ArrayList<LeaveRequest> applyLeave()
+    public ArrayList<LeaveRequest> allLeaves()
     {
+
         return leaveStore.getAllLeaves();
     }
 
