@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
-
 public class CompOff {
 
     private Employee employee;
@@ -48,7 +47,7 @@ public class CompOff {
             return;
 //            throw new IllegalArgumentException("Work on same day only can be loaded ");
         }
-        if ((endTime.getDayOfWeek().name().toUpperCase().equalsIgnoreCase("SATURDAY")) ||
+        if ((endTime.getDayOfWeek().name().equalsIgnoreCase("SATURDAY")) ||
                 (endTime.getDayOfWeek().name().equalsIgnoreCase("SUNDAY"))) {
             logWorkDays += 1;
             this.month = endTime.getMonth().getValue();
