@@ -21,6 +21,8 @@ public class MaternityLeave {
             return new LeaveResponse(LeaveStatus.REJECTED, "Min. of 180 days required from the date " +
                     "of joining to get the maternity leave");
         }
+        employee.setStartLeaveDate(request.getStartDate());
+        employee.setEndLeaveDate(request.getStartDate().plusMonths(6));
         employee.setPaternityLeave(employee.getPaternityLeave() + 1);
         return new LeaveResponse(LeaveStatus.ACCEPTED, "Leave granted as no. of children less than 2");
     }
