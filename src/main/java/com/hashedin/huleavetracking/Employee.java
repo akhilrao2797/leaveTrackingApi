@@ -3,35 +3,57 @@ package com.hashedin.huleavetracking;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 @Entity
 public class Employee {
 
     @Id
     private int employeeId;
-    private Gender gender;
-    private int maternityLeave=0;
-    private int paternityLeave=0;
-    //private CompOff compOff;
-    //public Map<String,Integer> month= new LinkedHashMap<String,Integer>();
+    private String gender;
+    private int maternityLeaveTaken=0;
+    private int paternityLeaveTaken=0;
     private LocalDate joiningDate;
     private int balanceLeaves;
     private boolean takenOptionalLeave;
     private boolean isOnMaternityOrPaternityLeave;
+    private LocalDate startLeaveDate;
+    private LocalDate endLeaveDate;
+    private int compOff;
+    private int compOffValidMonth;
+    private int noOfChildren;
+
+    public int getCompOffValidMonth() {
+        return compOffValidMonth;
+    }
+
+    public void setCompOffValidMonth(int compOffValidMonth) {
+        this.compOffValidMonth = compOffValidMonth;
+    }
+    public int getNoOfChildren() {
+        return noOfChildren;
+    }
+
+    public void setNoOfChildren(int noOfChildren) {
+        this.noOfChildren = noOfChildren;
+    }
+
 
     public Employee(){}
 
-    public Employee(int employeeId, Gender gender, LocalDate joiningDate) {
+    public Employee(int employeeId, Gender gender, LocalDate joiningDate,int compOff,int noOfChildren,
+                    int maternityOrPaternityLeave,int leaveBalance) {
         this.employeeId = employeeId;
-        this.gender = gender;
+        this.gender = String.valueOf(gender);
         this.joiningDate = joiningDate;
-        //this.setMonth();
         this.setBalanceLeaves(this.getBalanceLeaves());
         this.takenOptionalLeave =false;
         this.isOnMaternityOrPaternityLeave = false;
-        // this.compOff =new CompOff(this);
-        //this.leavesAtPresent = new LinkedHashMap<LocalDate, LocalDate>();
+        this.compOff=compOff;
+        this.compOffValidMonth=LocalDate.now().getMonthValue();
+        this.noOfChildren = noOfChildren;
+        this.maternityLeaveTaken = maternityOrPaternityLeave;
+        this.paternityLeaveTaken = maternityOrPaternityLeave;
+        this.balanceLeaves=leaveBalance;
     }
 
     public LocalDate getStartLeaveDate() {
@@ -42,23 +64,54 @@ public class Employee {
         this.startLeaveDate = startLeaveDate;
     }
 
-    public LocalDate getEndDate() {
-        return endDate;
+
+    public LocalDate getEndLeaveDate() {
+        return endLeaveDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
+    public void setEndLeaveDate(LocalDate endLeaveDate) {
+        this.endLeaveDate = endLeaveDate;
     }
 
-    private LocalDate startLeaveDate;
-    private LocalDate endDate;
-
-    public boolean isTakenOptionalLeave() {
-        return takenOptionalLeave;
+    public int getCompOff() {
+        return compOff;
     }
 
-    public void setTakenOptionalLeave(boolean takenOptionalLeave) {
-        this.takenOptionalLeave = takenOptionalLeave;
+    public void setCompOff(int compOff) {
+        this.compOff = compOff;
+    }
+
+    public int getBalanceLeaves() {
+        return balanceLeaves;
+    }
+
+    public void setBalanceLeaves(int balanceLeaves) {
+        this.balanceLeaves = balanceLeaves;
+    }
+
+    public LocalDate getJoiningDate() { return joiningDate; }
+
+    public int getEmployeeId() { return employeeId;}
+
+    public void setEmployeeId(int employeeId) {this.employeeId = employeeId;}
+
+    public int getMaternityLeave() {
+        return maternityLeaveTaken;
+    }
+
+    public void setMaternityLeave(int maternityLeave) {
+        this.maternityLeaveTaken = maternityLeave;
+    }
+
+    public int getPaternityLeave() {
+        return paternityLeaveTaken;
+    }
+
+    public void setPaternityLeave(int paternityLeave) {
+        this.paternityLeaveTaken = paternityLeave;
+    }
+    public String getGender() {
+        return gender;
     }
 
     public boolean isOnMaternityOrPaternityLeave() {
@@ -69,66 +122,12 @@ public class Employee {
         isOnMaternityOrPaternityLeave = onMaternityOrPaternityLeave;
     }
 
-    public LocalDate getJoiningDate() { return joiningDate; }
-
-    public int getEmployeeId() { return employeeId;}
-
-    public void setEmployeeId(int employeeId) {this.employeeId = employeeId;}
-
-    public int getBalanceLeaves() {
-        return balanceLeaves;
+    public boolean isTakenOptionalLeave() {
+        return takenOptionalLeave;
     }
 
-    public void setBalanceLeaves(int balanceLeaves) {
-       /* int balance = balanceLeaves;
-        LocalDate date = LocalDate.now();
-        for (Map.Entry<String, Integer> entry : this.month.entrySet()) {
-            if (date.getMonth().toString() == entry.getKey()) {
-                int value = entry.getValue();
-                balance += value;
-                break;
-            }
-            balance += entry.getValue();
-        }
-        */
-       int balance;
-        int duration = (int) ChronoUnit.MONTHS.between(joiningDate, LocalDate.now());
-        if(joiningDate.getDayOfMonth() < 15) {
-            balance = duration * 2;
-        }
-        else {
-            balance = duration * 2 - 1;
-        }
-        this.balanceLeaves = balance;
-    }
-
-//    public Map<LocalDate, LocalDate> getLeavesAtPresent() {
-//        return leavesAtPresent;
-//    }
-//
-//    public void setLeavesAtPresent(LocalDate startDate, LocalDate endDate) {
-//        leavesAtPresent.put(startDate,endDate);
-//    }
-
- //   public Map<LocalDate,LocalDate> leavesAtPresent ;
-
-    public int getMaternityLeave() {
-        return maternityLeave;
-    }
-
-    public void setMaternityLeave(int maternityLeave) {
-        this.maternityLeave = maternityLeave;
-    }
-
-    public int getPaternityLeave() {
-        return paternityLeave;
-    }
-
-    public void setPaternityLeave(int paternityLeave) {
-        this.paternityLeave = paternityLeave;
-    }
-    public Gender getGender() {
-        return gender;
+    public void setTakenOptionalLeave(boolean takenOptionalLeave) {
+        this.takenOptionalLeave = takenOptionalLeave;
     }
 
 

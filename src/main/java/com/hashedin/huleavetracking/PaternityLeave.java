@@ -3,7 +3,11 @@ package com.hashedin.huleavetracking;
 public class PaternityLeave {
 
     public LeaveResponse paternityLeaveGrant(Employee employee, LeaveRequest request) {
-        if (employee.getGender() == Gender.FEMALE) {
+        if(employee.getNoOfChildren() >2){
+            return  new LeaveResponse(LeaveStatus.REJECTED,
+                    "Cannot grant leave for more than 2 children birth");
+        }
+        if (employee.getGender() == "FEMALE") {
             return new LeaveResponse(LeaveStatus.REJECTED, "Gender and Leave Type Mismatch");
         }
         if (employee.getPaternityLeave() > 2){

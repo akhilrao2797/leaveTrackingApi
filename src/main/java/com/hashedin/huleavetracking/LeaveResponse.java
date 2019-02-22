@@ -27,7 +27,7 @@ public class LeaveResponse {
 
     @Override
     public String toString(){
-        return "Leave status :"+status+"Leave Response :"+response;
+        return "Leave status : "+status+"    Leave Response :  "+response;
 
     }
 }

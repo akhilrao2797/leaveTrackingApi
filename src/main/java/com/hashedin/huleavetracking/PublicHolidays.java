@@ -17,7 +17,7 @@ public class PublicHolidays {
     public PublicHolidays(Employee employee, LeaveRequest request) {
         this.employee = employee;
         this.request = request;
-        int year = request.getStartdate().getYear();
+        int year = request.getStartDate().getYear();
         publicHolidayList.add(LocalDate.of(year, 1, 15));
         publicHolidayList.add(LocalDate.of(year, 1, 26));
         publicHolidayList.add(LocalDate.of(year, 5, 1));
@@ -40,7 +40,7 @@ public class PublicHolidays {
         for (LocalDate date : publicHolidayList) {
             if (!(date.getDayOfWeek().toString().equalsIgnoreCase("SATURDAY") ||
                     date.getDayOfWeek().toString().equalsIgnoreCase("SUNDAY"))) {
-                if (request.getStartdate().isBefore(date.minusDays(1))
+                if (request.getStartDate().isBefore(date.minusDays(1))
                         && request.getEndDate().isAfter(date.plusDays(1))) {
                     holidays -= 1;
                 }
@@ -50,8 +50,8 @@ public class PublicHolidays {
             if (!entry.getValue().isUsed()) {
                 if(!(entry.getValue().getLocalDate1().getDayOfWeek().toString().equalsIgnoreCase("SATURDAY")
                         || entry.getValue().getLocalDate1().toString().equalsIgnoreCase("SUNDAY"))) {
-                    if (request.getStartdate().isBefore(entry.getValue().getLocalDate1().minusDays(1))
-                            && request.getStartdate().isBefore(entry.getValue().getLocalDate1().minusDays(1))) {
+                    if (request.getStartDate().isBefore(entry.getValue().getLocalDate1().minusDays(1))
+                            && request.getStartDate().isBefore(entry.getValue().getLocalDate1().minusDays(1))) {
                         employee.setTakenOptionalLeave(!employee.isTakenOptionalLeave());
                         holidays -= 1;
                         entry.getValue().setUsed(true);
@@ -59,8 +59,8 @@ public class PublicHolidays {
                 }
                 if(!(entry.getValue().getLocalDate2().getDayOfWeek().toString().equalsIgnoreCase("SATURDAY")
                         || entry.getValue().getLocalDate2().toString().equalsIgnoreCase("SUNDAY"))) {
-                    if (request.getStartdate().isBefore(entry.getValue().getLocalDate2().minusDays(1))
-                            && request.getStartdate().isBefore(entry.getValue().getLocalDate2().minusDays(1))) {
+                    if (request.getStartDate().isBefore(entry.getValue().getLocalDate2().minusDays(1))
+                            && request.getStartDate().isBefore(entry.getValue().getLocalDate2().minusDays(1))) {
                         employee.setTakenOptionalLeave(!employee.isTakenOptionalLeave());
                         holidays -= 1;
                         entry.getValue().setUsed(true);

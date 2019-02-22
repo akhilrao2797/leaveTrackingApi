@@ -17,11 +17,16 @@ public class EmployeeStore {
     @Autowired
     public EmployeeStore( EmployeeRepository employeeRepository){
         this.employeeRepository=employeeRepository;
-        Employee employee = new Employee(10,Gender.MALE, LocalDate.now().minusYears(2));
-        Employee employee2 = new Employee(11,Gender.MALE, LocalDate.now().minusYears(1));
-        Employee employee3 = new Employee(12,Gender.FEMALE, LocalDate.now().minusYears(2));
-        Employee employee4 = new Employee(14,Gender.MALE, LocalDate.now().minusYears(6));
-        Employee employee5 = new Employee(15,Gender.MALE, LocalDate.now().minusYears(3));
+        Employee employee = new Employee(10,Gender.MALE, LocalDate.now().minusYears(2),1,
+                0,0,3);
+        Employee employee2 = new Employee(11,Gender.MALE, LocalDate.now().minusYears(1),1,
+                0,0,10);
+        Employee employee3 = new Employee(12,Gender.FEMALE, LocalDate.now().minusYears(2),1,
+                0,0,13);
+        Employee employee4 = new Employee(14,Gender.MALE, LocalDate.now().minusYears(6),1,
+                0,0,10);
+        Employee employee5 = new Employee(15,Gender.MALE, LocalDate.now().minusYears(3),1,
+                0,0,4);
         employeeRepository.save(employee);
         employeeRepository.save(employee2);
         employeeRepository.save(employee3);
